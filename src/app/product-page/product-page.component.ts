@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProductService } from './product.service';
 import { Subscription } from 'rxjs';
 import { ShopService } from '../shop.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-product-page',
@@ -15,7 +16,7 @@ export class ProductPageComponent implements OnInit, OnDestroy {
   sub2: Subscription
   panelOpenState = false;
 
-  constructor(private productService: ProductService, private shopService: ShopService) {  }
+  constructor(private productService: ProductService, private shopService: ShopService, private _location: Location) {  }
 
 
   ngOnInit(): void {
@@ -39,6 +40,9 @@ export class ProductPageComponent implements OnInit, OnDestroy {
   clear() {
     this.enteredSearch = '';
     this.searchChange()
+  }
+  goBackPage(){
+    this._location.back();
   }
 
   ngOnDestroy(): void {
