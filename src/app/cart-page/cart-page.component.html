@@ -1,0 +1,116 @@
+<div class="container">
+  <div class="page-nav">
+        <div routerLink="/">home ➜</div>
+        <div routerLink="/products">products ➜</div>
+        <span>cart</span>
+  </div>
+  <div class="page-nav2">
+    <div (click)="goBackPage()">🢀 back</div>
+  </div>
+  <div class="container-top">
+    <div class="left-side">
+      <div class="store-element" >
+        <div *ngFor="let element of cartList, let i = index">
+          <div *ngIf="!isDuplicate(element, i)">
+            <div class="single-element" >
+              <div class="element-desc" (click)="openProduct(element)">
+                <img class="image" [src]="element.img" >
+                <div>
+                  <div>{{element.title}}</div>
+                  <div>Total: ${{element.price * getDuplicateCount(element)}}</div>
+                </div>
+              </div>
+              <div class="element-button">
+                <div class="buy-elements">
+                  <div>
+                    <span class="material-symbols-outlined count-button"
+                    (click)="minusAmount(element)">
+                      remove
+                      </span>
+                    <div>{{getDuplicateCount(element)}}</div>
+                    <span class="material-symbols-outlined count-button"
+                    (click)="plusAmount(element, getDuplicateCount(element))">
+                      add
+                      </span>
+                  </div>
+                </div>
+              </div>
+              <div class="message-container"      *ngIf="message">
+                <span class="message">{{message}}</span>
+              </div>
+            </div>
+            <mat-divider style="width: 100%; margin: 20px 0px;"></mat-divider>
+          </div>
+        </div>
+        <div *ngIf="isEmpty()">
+          <p>This cart is empty!</p>
+          <mat-divider style="width: 100%; margin: 20px 0px;"></mat-divider>
+        </div>
+      </div>
+      <div class="cart-nav">
+        <div>Total: ${{cartValue}}</div>
+        <button (click)="clearCart()">Clear Cart</button>
+      </div>
+    </div>
+    <div class="right-side">
+      <div>
+        <div class="panel-info">
+          <div class="panel-dynamic-title">
+            <div>Total Cart Value: </div>
+            <div>Total Items: </div>
+            <div>Shippment:</div>
+          </div>
+          <div class="panel-dynamic-data">
+            <div>${{totalCartValue()}}</div>
+            <div>{{cartElements}}</div>
+            <div>${{shipCost}}</div>
+          </div>
+        </div>
+          <mat-expansion-panel #panel
+              (opened)="panelOpenState = true"
+              (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+            <mat-panel-title>
+            Ship:
+            </mat-panel-title>
+            <mat-panel-description>
+            {{shipStatus}}
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div>
+              <div class="ship-button" (click)="pickOption(panel, 1)">DPD (+ $5)</div>
+              <div class="ship-button" (click)="pickOption(panel, 2)">UPS (+ $8)</div>
+              <div class="ship-button" (click)="pickOption(panel, 3)">Self-Pickup (+ $0)</div>
+            </div>
+          </mat-expansion-panel>
+          <p>Shippment is free above $300!</p>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="right-side-nav">
+        <div>Total Price: ${{totalPrice()}}</div>
+        <button>Order</button>
+      </div>
+    </div>
+  </div>
+  <mat-divider style="width: 90%; margin: 20px 0px; max-width: 1400px;"></mat-divider>
+  <h2>Questions?</h2>
+  <div class="container-bottom">
+    <div>
+      <mat-expansion-panel 
+        *ngFor="let faq of fqaData"
+        class="faq-panel"
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+        <mat-panel-title>
+        {{faq.title}}
+        </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+        {{faq.answer}}
+        </div>
+      </mat-expansion-panel>
+    </div>
+  
+  </div>
+</div>

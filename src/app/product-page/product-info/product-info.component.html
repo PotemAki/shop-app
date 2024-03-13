@@ -1,0 +1,144 @@
+<div class="container">
+  <div class="page-nav">
+    <div>
+      <div>
+        <div routerLink="/">home ➜</div>
+        <div *ngIf="isFromCart" routerLink="/products">products  ➜</div>
+        <div (click)="goBack(isFromCart)">{{isFromCart? 'cart' : 'products'}} ➜</div>
+        <span>{{currentProduct.title}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="page-nav2">
+    <div (click)="goBackPage()">🢀 back</div>
+  </div>
+  <div class="container-set">
+    <div class="content-top">
+      <div class="left-side">
+        <img class="image" [src]="currentProduct.img" 
+        (click)="openImagePopup(currentProduct.img)">
+        <div class="image-popup-container" *ngIf="selectedImg" (click)="closeImagePopup()">
+          <span class="close-button" (click)="closeImagePopup()">&times;</span>
+          <img [src]="selectedImg">
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="product-desc">
+          <div class="product-desc-top">
+            <h2>{{currentProduct.title}}</h2>
+            <div 
+              class="rating-sum"
+              [ngClass]="totalRate >3? 'green-rating':'rating-sum'">{{totalRate}} / 5</div>
+          </div>
+          <p>{{currentProduct.description}}</p>
+          <div class="price-group">
+            <div class="price">${{price}}<span>(-{{reducedBy}}%)</span></div>
+            <div class="previous-price">Old Price: <span>
+              ${{increasedPrice}}
+            </span></div>
+          </div>
+          <div class="buy-elements">
+            <div>
+              <span class="material-symbols-outlined count-button"
+              (click)="minusAmount()">
+                remove
+                </span>
+              <div>{{amount}}</div>
+              <span class="material-symbols-outlined count-button"
+              (click)="plusAmount()">
+                add
+                </span>
+            </div>
+            <button class="product-button"
+            (click)="addToCart(currentProduct)">Add To Cart</button>
+          </div>
+          <div class="message-container" *ngIf="message">
+            <span class="message">{{message}}</span>
+          </div>
+          <h3>Order before 12PM for shipping today.</h3>
+        </div>
+        <div class="reviews-link">
+          <button (click)="scrollReview()">
+            ▼ Check Reviews! <span>({{opinionsCount}})</span>
+          </button>
+        </div>
+        <div class="tag-group">
+          <div class="tag" *ngIf="opinionsCount >= 5">Popular!</div>
+          <div class="tag" style="background-color: rgb(255, 183, 74);" *ngIf="opinionsCount < 5">Sale!</div>
+          <div class="tag2" *ngIf="currentProduct.brand">{{currentProduct.brand}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="container-bottom">
+      <hr>
+      <div class="desc-button-group">
+        <button 
+          class="desc-button1"
+          [class.active]="isDesc"
+          (click)="toDesc()">
+          Description</button>
+        <button 
+          class="desc-button2"
+          [class.active]="!isDesc"
+          (click)="toReview()">
+          Reviews <span>({{opinionsCount}})</span></button>
+      </div>
+      <div class="details" *ngIf="isDesc" #reviews>
+        <p>{{currentProduct.longDescription}}</p>
+        <div>  
+          <h2>Tech Details</h2>
+          <hr>
+          <div class="tech-details"  
+          *ngFor="let detail of currentProduct.techDetails; let i = index" >
+            <div>{{detail.title}}:</div>
+            <span>{{detail.desc}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="reviews" *ngIf="!isDesc" #reviews>
+        <div class="input-section">
+          <form 
+            class="input-form" 
+            (ngSubmit)="onSubmit(f)" 
+            #f="ngForm">
+            <div class="input-section-top">
+              <mat-form-field class="small-input">
+                <mat-label>You Name</mat-label>
+                <input maxlength="15" matInput ngModel name="name" required>
+              </mat-form-field>
+              <mat-form-field class="small-input">
+                <mat-label>Select</mat-label>
+                <mat-select ngModel name="rate" required>
+                  <mat-option value="1">It's bad (1)</mat-option>
+                  <mat-option value="2">It's not bad (2)</mat-option>
+                  <mat-option value="3">It's alright (3)</mat-option>
+                  <mat-option value="4">I like it! (4)</mat-option>
+                  <mat-option value="5">Great product (5)</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <mat-form-field class="input-comment">
+              <mat-label>Leave a comment</mat-label>
+              <textarea maxlength="100" matInput ngModel name="comment" required placeholder="Ex. It makes me feel..."></textarea>
+            </mat-form-field>
+            <div class="form-button">
+              <button type="submit">Add Comment</button>
+            </div>
+          </form>
+        </div>
+        <div class="review-section">
+          <div class="single-review" 
+              *ngFor="let opinion of currentProduct.opinions; let i = index">
+            <div class="review-top">
+              <div>{{opinion.name}}</div>
+              <span class="review-rating" [ngClass]="opinion.rating > 3?'green-rating' : 'review-rating'">{{opinion.rating}}/5</span>
+            </div>
+            <div>{{opinion.comment}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+ 
+</div>

@@ -1,0 +1,139 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 20px 20px;
+
+}
+.products{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.single-element{
+  border: solid 3px white;
+  width: 230px;
+  height: 420px;
+  margin: 5px;
+  margin-bottom: 10px;
+  padding: 15px;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+.single-element:hover{
+  border: solid 3px rgb(68, 68, 68);
+}
+.product-img{
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  cursor: pointer;
+}
+.product-desc{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  padding: 0px 5px
+}
+.product-name-line{
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  color: var(--bg-light);
+  font-size: 16px;
+  margin-top: 5px;
+}
+.hide{
+  opacity: 0;
+  padding: 5px;
+}
+.product-nav-line{
+  opacity: 1;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.product-button{
+  border: solid 2px var(--bg-light);;
+  border-radius: 20px;
+  background-color: transparent;
+  color: var(--bg-light);
+  font-weight: bold;
+  font-size: 14px;
+  padding: 7px 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.product-button:hover{
+  background-color: var(--bg-light);
+  color: white;
+}
+
+
+mat-paginator {
+  margin-top: 50px;
+  width: 95%;
+}
+
+@media (max-width: 1305px) {
+  .products{
+    gap: 0px;
+  }
+  .single-element{
+    width: 190px;
+    height: 380px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .container{
+    padding: 20px 0px;
+  
+  }
+  .products{
+    gap: 0px;
+  }
+}
+
+@media (max-width: 1005px){ 
+  .single-element{
+    width: 150px;
+    height: 350px;
+
+  }
+  
+  .product-button{
+    font-size: 14px;
+
+  }
+  .product-desc div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 850px) {
+  .container{
+    justify-content: center;
+    width: 100%;
+    padding: 20px 10px;
+  } 
+  .container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 00px;
+  
+  }
+  .products{
+    justify-content: center;
+  
+  }
+}

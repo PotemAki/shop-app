@@ -1,0 +1,104 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  min-height: 50vh;
+  background-color: var(--bg-basic);
+  padding: 20px 60px 255px 60px;
+  z-index: 1;
+  gap: 20px
+}
+
+.page-nav2,
+.page-nav{
+  width: 100%;
+  max-width: 1500px;
+  display: flex;
+  align-items: c;
+  font-size: 16px;
+  gap: 7px;
+  cursor: pointer;
+  padding: 10px 10px 30px 10px;
+}
+.page-nav2 div,
+.page-nav div{
+  font-weight: bold;
+}
+
+.contact-box{
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.contact-details{
+  display: flex;
+  flex-direction: column;
+  gap: 20px
+}
+.local-shop-desc{
+  font-size: 15px;
+  max-width: 500px;
+}
+.contact-details div {
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+}
+
+.email,
+.contact-details span{
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
+}
+.email:hover{
+  opacity: 0.7;
+}
+
+
+.img{
+  max-width: 600px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+
+@media (max-width: 1150px) {
+  .contact-box{
+    width: 70%;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px
+  }
+}
+
+@media (max-width: 970px){
+  .contact-box{
+    width: 95%;
+  }
+  .img{
+    width: 100%; 
+  }
+  .container{
+    padding: 65px 20px 255px 20px;
+
+  }
+  .page-nav{
+    display: none;
+  }
+  .page-nav2{
+    display: flex;
+  }
+}

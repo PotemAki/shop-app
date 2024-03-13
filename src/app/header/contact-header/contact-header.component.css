@@ -1,0 +1,40 @@
+.container{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  min-height: 250px;
+  padding: 0px 100px;
+}
+
+
+.contact-details{
+  display: flex;
+  flex-direction: column;
+  gap: 20px
+}
+.contact-details div {
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+}
+.email,
+.contact-details span{
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
+}
+
+.email:hover{
+  opacity: 0.7;
+}
+
+.img{
+  max-width: 350px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}

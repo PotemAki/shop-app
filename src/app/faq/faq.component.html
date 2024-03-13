@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="page-nav">
+    <div routerLink="/">home ➜</div>
+    <span>FAQ</span>
+  </div>
+  <div class="page-nav2">
+    <div (click)="goBackPage()">🢀 back</div>
+  </div>
+  <div class="content">
+    <div class="content">
+      <div class="faq-left">
+        <div class="buttons-group">
+          <div 
+          class="cat-button"
+          [class.active]="isOpen === 'shipment'"
+          (click)="openTab('shipment')">Shipping and Delivery</div>
+          <div 
+          class="cat-button"
+          [class.active]="isOpen === 'product'"
+          (click)="openTab('product')">Returns and Exchanges</div>
+          <div 
+          class="cat-button"
+          [class.active]="isOpen === 'service'"
+          (click)="openTab('service')">Customer Service</div>
+          <div 
+          class="cat-button"
+          [class.active]="isOpen === 'promotions'"
+          (click)="openTab('promotions')">Promotions and Discounts</div>
+          <div 
+          class="cat-button"
+          [class.active]="isOpen === 'privacy'"
+          (click)="openTab('privacy')">Privacy and Security</div>
+        </div>
+      </div>
+      <div class="faq-right"> 
+        <h1>Frequently Asked Questions</h1>
+        <div>
+          <mat-expansion-panel 
+            *ngFor="let faq of loopElement"
+            class="faq-panel"
+            (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+            <mat-panel-title>
+            {{faq.title}}
+            </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div>
+            {{faq.answer}}
+            </div>
+          </mat-expansion-panel>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>

@@ -1,0 +1,116 @@
+<mat-drawer-container class="container">
+  <mat-drawer #drawer mode="over" 
+  class="sidenav-container" >
+    <div class="sidenav-group">
+      <div>
+        <div class="sidenav-top">
+          <button mat-icon-button (click)="toggleSidenav()">
+            <span class="material-symbols-outlined sidebar-icon">
+              close
+              </span>
+          </button>
+        </div>
+        <div class="nav-group-buttons2">
+          <button 
+            class="nav-button" 
+            routerLink="/"
+            (click)="toggleSidenav()">The Best</button>
+          <button 
+            class="nav-button"
+            (click)="openProducts('sidenav')">Products</button>
+          <button 
+            class="nav-button"
+            routerLink="/contact"
+            (click)="toggleSidenav()">Where Are We</button>
+          <button 
+          class="nav-button" 
+          routerLink="/faq"
+          (click)="toggleSidenav()">FAQ</button>
+        </div>
+      </div>
+      <div class=sidenav-bottom>
+        <div class="logo" routerLink="/">
+          <div class="logo-name">
+            <div class="logo-name-left">dress</div>
+            <span class="logo-name-right">Nice</span>
+          </div>
+          <span class="material-symbols-outlined logo-icon">
+            shopping_basket
+            </span>
+        </div>
+        <p>© 2024 All Rights Reserved | Created by Michał.dev</p>
+      </div>
+    </div>
+  </mat-drawer>
+  <mat-toolbar class="header-container">
+    <div class="header-top">
+      <button mat-icon-button class="sidebar-icon" 
+      (click)="toggleSidenav()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="small-only">
+        <div class="shop-nav" routerLink="/cart">
+          <div class="cart">
+            <mat-icon [matBadge]="cartNumber === 0 ? '': cartNumber" matBadgeColor="warn"  aria-hidden="false">shopping_cart</mat-icon>
+          </div>
+          <div class="cart-button">${{cartValue}}</div>
+        </div>
+      </div>
+      <div class="logo" routerLink="/">
+        <div class="logo-name">
+          <div class="logo-name-left">dress</div>
+          <span class="logo-name-right">Nice</span>
+        </div>
+        <span class="material-symbols-outlined logo-icon">
+          shopping_basket
+          </span>
+      </div>
+      <div class="big-only">
+        <div class="shop-nav" routerLink="/cart">
+          <div class="cart">
+            <mat-icon [matBadge]="cartNumber === 0 ? '': cartNumber" matBadgeColor="warn"  aria-hidden="false">shopping_cart</mat-icon>
+          </div>
+          <div class="cart-button">${{cartValue}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="header-bottom">
+      <div class="nav-group-buttons">
+        <button class="nav-button" routerLink="/">The Best</button>
+        <button 
+          class="nav-button"
+          (click)="openProducts('normal')"
+          [class.active]="isOpen1"
+          (mouseenter)="openTab1(1)"
+          (mouseleave)="closeTab1(1)">Products</button>
+        <div 
+          (mouseenter)="openTab1(1)"
+          (mouseleave)="closeTab1(1)"
+          [ngClass]="isOpen1 ? 'open' : 'hide'">
+          <div class="tab-menu">
+              <app-products-header></app-products-header>
+          </div>
+        </div>
+        <button 
+          class="nav-button"
+          [class.active]="isOpen2"
+          routerLink="/contact"
+          (mouseenter)="openTab1(2)"
+          (mouseleave)="closeTab1(2)">Where Are We</button>
+        <div 
+          (mouseenter)="openTab1(2)"
+          (mouseleave)="closeTab1(2)"
+          [ngClass]="isOpen2 ? 'open' : 'hide'">
+          <div class="tab-menu">
+              <app-contact-header></app-contact-header>
+          </div>
+        </div>
+        <button class="nav-button" routerLink="/faq">FAQ</button>
+      </div>
+    </div>
+  </mat-toolbar>
+  <div class="page-content">
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </div>
+</mat-drawer-container>

@@ -1,0 +1,39 @@
+
+<div class="container">
+  <div class="products">
+    <div *ngFor="let product of displayedProductList; let i = index"> 
+      <div class="single-element" 
+           (mouseenter)="onMouse(i)"
+           (mouseleave)="clearMouse()">
+       <div>
+         <img 
+         [src]="product.img" 
+         class="product-img"
+         (click)="openProduct(product, i)">
+         <div class="product-name-line">
+           <div>{{product.title}}</div>
+           <div>${{product.price}}</div>
+         </div>
+       </div>
+       <div class="product-desc">
+         <div 
+           [ngClass]="isViewed === i? 'product-name-line':'hide'">
+           <button class="product-button" 
+           (click)="openProduct(product, i)">Read More</button>
+           <button class="product-button"
+           (click)="toCart(product)">To Cart</button>
+         </div>
+       </div> 
+     </div>
+   </div>
+  </div>
+  <div *ngIf="isEmptyList">No products found. Please clear any applied filters.</div>
+  <mat-paginator 
+              [length]="displayedProductCount"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="[9, 18, 27, 100]"
+              (page)="onChangePage($event)"
+              aria-label="Select page">
+  </mat-paginator>
+  </div>
+

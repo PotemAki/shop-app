@@ -1,0 +1,41 @@
+<div class="container">
+  <p (click)="openProducts()">All Products ({{elementsCount}})</p>
+  <div>
+    <div class="type-group">
+      <div 
+          *ngFor="let type of typeList, let i = index"
+          class="type-button"
+          [class.active]="openedType === type && isOpen1"
+          (click)="openType(type)"
+          (mouseenter)="openTab1(type)"
+          (mouseleave)="closeTab1(type)">{{type}}
+        <span *ngIf="openedType === type && isOpen1 || (i === 0 && firstTimer) " class="material-symbols-outlined">
+        chevron_right
+        </span>
+      </div>
+    </div>
+    <div
+      (mouseenter)="openTab2()"
+      (mouseleave)="closeTab2()"
+      [ngClass]="isOpen1 ? 'open' : 'hide'">
+      <div class="tab-menu">
+          <div 
+            class="single-brand" 
+            *ngFor="let brand of brandList"
+            (click)="openBrand(brand)">
+              {{brand}}
+          </div>
+      </div>
+    </div>
+    <div>
+      <div>
+        <fieldset class="top-product" (click)="openTopProduct()">
+          <legend class="top-product-title">Bestseller</legend>
+          <img [src]="highestRatedProduct.img">
+          <div>{{highestRatedProduct.title}}</div>
+          <span>{{highestRating}}!</span>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>

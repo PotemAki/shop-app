@@ -1,0 +1,115 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 25px;
+}
+
+
+/* BRAND FILTER  */
+.price-section,
+.brand-section{
+  width: 90%;
+  height: 100%;
+}
+.price-section h3,
+.brand-section h3{
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+mat-divider{
+  width: 90%;
+}
+
+.chip-group{
+  display: flex;
+  flex-wrap: wrap;
+  transition: 0.3s;
+}
+.fade {
+  -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
+  mask-image: linear-gradient(180deg, #000 60%, transparent);
+}
+.brand-chip{
+  background-color: rgb(228, 228, 228);
+  border: none;
+  border-radius: 25px;
+  padding: 7px 15px;
+  margin: 2px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+.brand-chip-active{
+  background-color: rgb(248, 166, 166);
+}
+.button-group{
+  display: flex;
+  gap: 5px;
+}
+.filter-button{
+  border: solid 2px var(--bg-light);;
+  border-radius: 15px;
+  letter-spacing: 0.5px;
+  background-color: transparent;
+  color: var(--bg-light);
+  font-weight: bold;
+  font-size: 15px;
+  padding: 5px 15px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.filter-button:hover{
+  background-color: var(--bg-light);
+  color: white;
+
+}
+.price-input{
+  display: flex;
+  justify-content: space-between;
+}
+.price-input input{
+  width: 30%;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 15px;
+  font-weight: bold;
+  background-color: rgb(228, 228, 228);
+}
+.price-input input:focus{
+  outline: none;
+}
+
+.price-group{
+  display: flex;
+  flex-direction: column;
+}
+
+.expand-button{
+  border: solid 1px var(--bg-light);;
+  border-radius: 10px;
+  letter-spacing: 0.5px;
+  background-color: white;
+  color: var(--bg-light);
+  font-weight: bold;
+  padding: 7px 15px;
+  transition: 0.3s;
+  cursor: pointer;
+  margin-top: -40px;
+  z-index: 2;
+}
+.expand-button:hover{
+  background-color: var(--bg-light);
+  color: white;
+}
+
+.checkbox-group{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,47 @@
+<div class="container">
+  <div>
+    <img class="img-banner" src="assets/main1.jpg">
+    <div class="logo">
+      <div class="logo-name">
+        <div class="logo-name-left">dress</div>
+        <span class="logo-name-right">Nice</span>
+      </div>
+      <span class="material-symbols-outlined logo-icon">
+        shopping_basket
+        </span>
+    </div>
+    <div class="quote">Design your style.</div>
+    <mat-divider style="width: 90%; margin: 20px 0px;"></mat-divider>
+    <div class="brand">
+      <div class="brand-left-side">
+        <h1>We offer the best.</h1>
+        <p>With iconic brands like Nike, Adidas, Reebok, and The North Face, we guarantee top-quality products that stand the test of time. Shop with confidence knowing that we curate only the finest selection, ensuring that you get nothing but excellence with every purchase.</p>
+      </div>
+      <div class="brand-right-side">
+        <fieldset class="brand-box">
+          <legend>Our Brands</legend>
+          <div>
+            <img class="logo-img" src="assets/nike-logo.png">
+            <img class="logo-img" src="assets/adidas-logo.png">
+            <img class="logo-img" src="assets/reebok-logo.png">
+            <img class="logo-img" src="assets/converse-logo.png">
+            <img class="logo-img" src="assets/northface-logo.png">
+            <img class="logo-img" src="assets/underarmor-logo.png">
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <mat-divider style="width: 90%; margin: 50px 0px;"></mat-divider>
+    <p class="category-title">Top reviewed:</p>
+    <div class="top-products">
+      <div *ngFor="let product of topThree" class="single-top-product">
+        <div>
+          <img [src]="product.img" >
+          <span class="opinions-span">{{product.opinions.length}} Reviews</span>
+          <span class="open-span" (click)="openProduct(product)">Open</span>
+        </div>
+        <div class="top-product-title">{{product.brand}}</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Rubik', sans-serif !important }
+
+
+:root {
+  --font-rubik: 'Rubik', sans-serif;
+  --font-header: 'Kaushan Script', cursive;
+  --font-stylish: 'Roboto Condensed';
+  --font-desc: 'Handlee', cursive;
+  --dark-basic:  rgb(48, 48, 48);
+  --bg-light: rgb(31, 31, 31);
+  --bg-basic: rgb(255, 255, 255);
+  --desert-color: rgb(250, 190, 112);
+}

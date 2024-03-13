@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="brand-section">
+    <h3>Type:</h3>
+    <section class="checkbox-group">
+      <mat-checkbox   
+        *ngFor="let type of typeList, let i = index"
+        color="primary" 
+        class="checkbox"
+        [checked]="isActiveCheckbox(type)"
+        (click)="selectCheckbox(type)">{{type}}</mat-checkbox>
+    </section>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="brand-section">
+    <h3>Brand:</h3>
+    <div class="chip-group" [ngClass]="displayChips < 98? 'fade': 'chip-group'">
+      <div *ngFor="let brand of brandList, let i = index">
+        <div
+        class="brand-chip"
+        *ngIf="i < displayChips"
+        [class.brand-chip-active]="isActiveChip(brand)"
+        (click)="selectChip(brand)">
+        <span class="material-symbols-outlined brand-chip-check" 
+        *ngIf="isActiveChip(brand)">
+          check
+          </span>
+        <span>{{brand}}</span>
+      </div>
+      </div>
+    </div>
+  </div>
+  <button class="expand-button" *ngIf="displayChips < 98" (click)="expandList()">▼ Show More</button>
+  <mat-divider></mat-divider>
+  <div class="price-section">
+    <h3>Price:</h3>
+    <div class="price-group">
+      <div class="price-input">
+        <input type="number" [(ngModel)]="value.min">
+        <input type="number" [(ngModel)]="value.max">
+      </div>
+      <mat-slider min="0" max="500">
+        <input [(ngModel)]="value.min" matSliderStartThumb>
+        <input [(ngModel)]="value.max" matSliderEndThumb>
+      </mat-slider>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="button-group">
+    <button class="filter-button" (click)="doFilter()">Filter</button>
+    <button class="filter-button" (click)="doClear()">Clear</button>
+  </div>
+</div>

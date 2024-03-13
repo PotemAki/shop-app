@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="page-nav">
+    <div routerLink="/">home ➜</div>
+    <span>products</span>
+  </div>
+  <div class="content-set">
+    <div class="left-side">
+      <app-product-filter></app-product-filter>
+    </div>
+    <div class="small-filter">
+      <mat-expansion-panel 
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+        <mat-panel-title>
+        Filter
+        </mat-panel-title>
+        <mat-panel-description>
+        {{panelOpenState ? 'Hide' : 'Show'}}
+        </mat-panel-description>
+        </mat-expansion-panel-header>
+        <app-product-filter></app-product-filter>
+      </mat-expansion-panel>
+    </div>
+    <div class="right-side">
+      <div class="search-element">
+          <input 
+            type="text" 
+            [(ngModel)]="enteredSearch" 
+            placeholder="search" 
+            (input)="searchChange()" >
+            <button mat-icon-button (click)="clear()">
+              <mat-icon>close</mat-icon>
+            </button>
+      </div>
+      <mat-divider style="width: 90%;"></mat-divider>
+      <div class="message-container" *ngIf="message">
+        <span class="message">{{message}}</span>
+      </div>
+      <div class="product-element">
+          <app-product-template></app-product-template>
+      </div>
+    </div>
+  </div>
+</div>
