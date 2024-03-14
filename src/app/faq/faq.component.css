@@ -26,18 +26,19 @@
   font-weight: bold;
 }
 
-.content{
-  max-width: 1300px;
+.content-width{
+  max-width: 1700px;
 }
 .content{
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  gap: 30px
+  gap: 80px;
 }
 
 .faq-right{
   width: 60%;
+  max-width: 1020px;
   display: flex;
   flex-direction: column;
   gap: 50px
@@ -51,9 +52,6 @@
   border-bottom: solid 1px rgb(190, 190, 190);
   border-radius: 0px;
   margin: 10px 0px;
-}
-.faq-left{
-  width: 30%;
 }
 .buttons-group{
   max-width: 250px !important;
@@ -131,7 +129,6 @@ mat-expansion-panel{
   }
   .page-nav2{
     display: flex;
-    margin-left: 50px;
   }
   .faq-left{
     width: 100%;

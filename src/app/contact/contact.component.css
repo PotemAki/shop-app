@@ -19,7 +19,7 @@
   font-size: 16px;
   gap: 7px;
   cursor: pointer;
-  padding: 10px 10px 30px 10px;
+  padding: 20px 10px 50px 10px;
 }
 .page-nav2 div,
 .page-nav div{
@@ -106,6 +106,6 @@
   }
   .page-nav2{
     display: flex;
-    margin-left: 50px;
+    
   }
 }

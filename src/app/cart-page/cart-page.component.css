@@ -292,6 +292,33 @@ mat-expansion-panel-header{
   .page-nav2{
     display: flex;
   }
+  .right-side p{
+    font-size: 13px;
+  }
+  mat-expansion-panel{
+    width: 100%;
+  }
+  container-bottom{
+    height: 100%;
+    justify-content: center;
+  }
+  .container-bottom div{
+    width: 100%;
+  }
+  .faq-panel{
+    width: 100%;
+    min-height: 50px;
+    padding: 50px 0px;
+
+  }
+  .faq-panel mat-panel-title{
+    font-size: 14px;
+  }
+  .faq-panel div{
+    font-size: 13px;
+    width: 100%;
+    margin-top: 50px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -336,31 +363,5 @@ mat-expansion-panel-header{
   .right-side-nav div{
     font-size: 15px;
   }
-  .right-side p{
-    font-size: 13px;
-  }
-  mat-expansion-panel{
-    width: 100%;
-  }
-  container-bottom{
-    height: 100%;
-    justify-content: center;
-  }
-  .container-bottom div{
-    width: 100%;
-  }
-  .faq-panel{
-    width: 100%;
-    min-height: 50px;
-    padding: 50px 0px;
-
-  }
-  .faq-panel mat-panel-title{
-    font-size: 14px;
-  }
-  .faq-panel div{
-    font-size: 13px;
-    width: 100%;
-    margin-top: 50px;
-  }
+  
 }

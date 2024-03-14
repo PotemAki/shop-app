@@ -21,6 +21,17 @@
   object-fit: cover;
   filter: brightness(90%);
   user-select: none;
+  opacity: 0;
+  animation: menuTab 0.8s forwards;
+}
+
+@keyframes menuTab {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* LOGO */
@@ -31,6 +42,9 @@
   justify-content: center;
   user-select: none;
   position: relative;
+  opacity: 0;
+  animation: menuTab 1s forwards;
+  animation-delay: 0.5s;
 }
 .logo-icon{
   position: absolute;
@@ -60,7 +74,11 @@
   font-size: 18px;
   font-style: italic;
   margin-top: -10px;
+  opacity: 0;
+  animation: menuTab 0.8s forwards;
+  animation-delay: 1s;
 }
+
 .category-title{
   width: 90%;
   font-size: 18px;
@@ -129,6 +147,9 @@
   display: flex;
   flex-direction: row !important;
   width: 80% !important;
+  opacity: 0;
+  animation: menuTab 0.5s forwards;
+  animation-delay: 1s;
 }
 .brand-box{
   width: 80%;

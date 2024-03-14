@@ -25,7 +25,7 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
   timeOut: any;
   opinionsCount = 0
   selectedImg = ''
-  isDesc = false
+  isDesc = true
   totalRate = 0;
   sub: Subscription
   sub2: Subscription
@@ -35,7 +35,6 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
   {}
 
   ngOnInit() {
-
     this.route.params.subscribe((params: Params) =>{
         this.currentTitle = params.id;
         this.sub = this.productService.productList.subscribe((data)=>{
@@ -48,6 +47,11 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
         this.isFromCart = history.state.fromCart;
         this.applyProduct()
     })
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });
   }
 
   applyProduct() {
