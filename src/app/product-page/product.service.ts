@@ -12,8 +12,8 @@ export class ProductService {
   clearFilters = new Subject<any>()
   pageIndex = new BehaviorSubject<number>(0)
   closeTab = new Subject<any>()
-  headerFilterType = new Subject<any>()
-  headerFilterBrand = new Subject<any>()
+  headerFilterType = new BehaviorSubject<any>('')
+  headerFilterBrand = new BehaviorSubject<any>('')
   tempData: any;
 
   updateFilter(brands: any, price:any, type: any ) {

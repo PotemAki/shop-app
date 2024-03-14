@@ -109,7 +109,10 @@ export class ProductsHeaderComponent implements OnInit, OnDestroy {
     this.productService.headerFilterType.next(this.openedType)
     this.productService.closeTab.next(true)
     this.productService.headerFilterBrand.next(brand)
-    this.router.navigate(['/products'])
+    setTimeout(()=>{
+      this.router.navigate(['/products'])
+    })
+    
   }
 
   ngOnDestroy(): void {

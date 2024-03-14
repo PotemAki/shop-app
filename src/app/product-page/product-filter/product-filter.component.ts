@@ -114,6 +114,8 @@ export class ProductFilterComponent implements OnInit, OnDestroy {
   }
 
   doClear() {
+    this.productService.headerFilterBrand.next('')
+    this.productService.headerFilterType.next('')
     this.filteredBrand = []
     this.value = {
       min: 0, 
