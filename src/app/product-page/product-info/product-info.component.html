@@ -2,9 +2,18 @@
   <div class="page-nav">
     <div>
       <div>
-        <div routerLink="/">home ➜</div>
-        <div *ngIf="isFromCart" routerLink="/products">products  ➜</div>
-        <div (click)="goBack(isFromCart)">{{isFromCart? 'cart' : 'products'}} ➜</div>
+        <div routerLink="/">home</div>
+        <span class="material-symbols-outlined">
+          arrow_right_alt
+          </span>
+        <div *ngIf="isFromCart" routerLink="/products">products</div>
+        <span *ngIf="isFromCart" class="material-symbols-outlined">
+          arrow_right_alt
+          </span>
+        <div (click)="goBack(isFromCart)">{{isFromCart? 'cart' : 'products'}}</div>
+        <span class="material-symbols-outlined">
+          arrow_right_alt
+          </span>
         <span>{{currentProduct.title}}</span>
       </div>
     </div>
